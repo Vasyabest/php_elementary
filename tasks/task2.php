@@ -28,14 +28,17 @@
 
         if (($list1->a - $list2->c  < 0 && $list1->b - $list2->d < 0) || ($list1->a - $list2->c  < 0 && $list1->b - $list2->d < 0) ) {
             echo '1';
+	    echo '<br>';
         }
 
         elseif (($list1->a - $list2->c  > 0 && $list1->b - $list2->d > 0) || ($list1->a - $list2->c  > 0 && $list1->b - $list2->d > 0) ){
             echo '2';
+	    echo '<br>';
         }
 
         else {
             echo '0';
+	    echo '<br>';
         }
     }
 

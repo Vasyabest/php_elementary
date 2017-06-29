@@ -1,4 +1,7 @@
 <?php
+
+$obj = (object) array('min' => 100000, 'max' => 200000);
+
 function check($ticket) //function return digit in string type and add "0" in start if it need
 {
     if (strlen(strval($ticket)) < 6) { //check if ticket shorter than 6 digits
@@ -13,7 +16,7 @@ function check($ticket) //function return digit in string type and add "0" in st
     }
     else {
         $result=strval($ticket);
-            }
+    }
     return $result;   //return string ticket if ticket was 6digitals
 }
 
@@ -35,7 +38,7 @@ function simple($ticket){
     }
 
 
-   // $first_sum=array_sum($first_part);
+    // $first_sum=array_sum($first_part);
     //$second_sum=array_sum($second_part);
     if($first_sum===$second_sum){
         $result=1;
@@ -55,7 +58,7 @@ function complex($ticket){
 
     for($i=0;$i<6;$i++){
         if(intval($arr[$i])%2==0){
-           $summEven+=$arr[$i];
+            $summEven+=$arr[$i];
         }
         else{
             $summOdd+=intval($arr[$i]);
@@ -93,19 +96,26 @@ function countComplex($min,$max){
 
 
 
-function main(){
-    $simpleTickets=countSimple(1, 999999);
-    $complexTickets=countComplex(1, 999999);
+function main($minMax){
+    $simpleTickets=countSimple($minMax->min, $minMax->max);
+    $complexTickets=countComplex($minMax->min, $minMax->max);
 
-    if ($simpleTickets>$complexTickets){
-        echo "Method 1 won";
-        echo $simpleTickets;
-        echo $complexTickets;
+    if ($simpleTickets > $complexTickets){
+        $result = (object) array('info' => "Simple method has won", 'simple' => $simpleTickets, 'complex' => $complexTickets);
+    } elseif ($simpleTickets < $complexTickets){
+        $result = (object) array('info' => "Complex method has won", 'simple' => $simpleTickets, 'complex' => $complexTickets);
+    } else {
+        $result = (object) array('info' => "It was a draw", 'simple' => $simpleTickets, 'complex' => $complexTickets);
     }
+
+    echo $result->info;
+    echo '</br>';
+    echo $result->simple;
+    echo '</br>';
+    echo $result->complex;
+    return $result;
 }
 
 
-
-
-main();
+main($obj);
 ?>
