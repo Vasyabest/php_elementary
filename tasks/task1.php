@@ -1,8 +1,9 @@
-<?php 
+<?php
 $w=4;
 $h=5;
 $s="*";
 function chess($width,$height,$s){
+
     for($i=0;$i<$width;$i++) {
         for($j=0;$j<$height;$j++){
             $arr[$i][$j]=$s;
@@ -16,5 +17,8 @@ function chess($width,$height,$s){
         echo "</br>";
     }
 }
+
+
+
 chess($w,$h,$s);
 ?>

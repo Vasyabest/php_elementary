@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 $triangle1 = (object) array('a' => 5, 'b' => 6, 'c'=> 7.4, 'vertices'=>"ABC");
 $triangle2 = (object) array('a' => 7, 'b' => 8, 'c'=> 11.32, 'vertices'=>"BCD");
 $triangle3 = (object) array('a' => 2, 'b' => 3, 'c'=> 4, 'vertices'=>"CDE");

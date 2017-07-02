@@ -4,7 +4,7 @@
     $list2 = (object) array('c' => 34, 'd' => 15);
 
     function checkLists ($list1, $list2) {
-        //check on float and int.
+        //check on float and int
         if (gettype($list1->a) !== 'float' && gettype($list1->a) !== 'integer') {
             echo 'Sorry, you entered wrong parameter a... ';
             return 0;
@@ -28,12 +28,10 @@
 
         if (($list1->a - $list2->c  < 0 && $list1->b - $list2->d < 0) || ($list1->a - $list2->c  < 0 && $list1->b - $list2->d < 0) ) {
             echo '1';
-	    echo '<br>';
         }
 
         elseif (($list1->a - $list2->c  > 0 && $list1->b - $list2->d > 0) || ($list1->a - $list2->c  > 0 && $list1->b - $list2->d > 0) ){
             echo '2';
-	    echo '<br>';
         }
 
         else {

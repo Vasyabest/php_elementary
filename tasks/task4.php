@@ -96,7 +96,7 @@ function countComplex($min,$max){
 
 
 
-function main($minMax){
+function method($minMax){
     $simpleTickets=countSimple($minMax->min, $minMax->max);
     $complexTickets=countComplex($minMax->min, $minMax->max);
 
@@ -113,9 +113,10 @@ function main($minMax){
     echo $result->simple;
     echo '</br>';
     echo $result->complex;
+    echo '</br>';
     return $result;
 }
 
 
-main($obj);
+method($obj);
 ?>
