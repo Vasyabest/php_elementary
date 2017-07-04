@@ -12,7 +12,6 @@ function checkValidation($width, $height)
         $result = false;
     }
     return $result;
-
 }
 
 function drawingBoard($width, $height, $s)
