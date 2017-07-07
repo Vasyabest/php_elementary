@@ -4,15 +4,15 @@ abstract class Task
 {
 
     abstract protected function run();
-
     abstract protected function isValid();
-
     abstract protected function validate();
 
     public function resolveAsString()
     {
-        if ($this->validate()) {
-            return $this->validate();
+        $this->validate();
+
+        if (!$this->isValid()) {
+            return $this->error;
         } else {
             return $this->run();
         }
@@ -23,44 +23,48 @@ abstract class Task
 
 class ChessBoard extends Task
 {
-    var $width;
-    var $height;
-    var $symbol;
+    protected $width;
+    protected $height;
+    protected $symbol;
 
     const space = "&nbsp";
     const newRow = "<br>";
 
-    function __construct($width, $height, $symbol)
+    public function __construct($width, $height, $symbol)
     {
         $this->width = $width;
         $this->height = $height;
         $this->symbol = $symbol;
     }
 
-    protected function isValid()
-    {
-        if (is_int($this->width) && is_int($this->height) && ($this->width > 0) && ($this->height > 0)) {
-            return true;
-        } else {
-            return false;
-        }
-    }
 
     protected function validate()
     {
-        if (!$this->isValid()) {
-            if (!is_int($this->width)) {
-                return "You have to enter only integer number for width";
-            } elseif (!is_int($this->height)) {
-                return "You have to enter only integer number for height";
-            } elseif ($this->width < 0) {
-                return "You have to enter width more than 0";
-            } elseif ($this->height < 0) {
-                return "You have to enter height more than 0";
-            }
-        } else {
-            return false;
+        $this->isValid = true;
+        $this->error = '';
+
+        if (!is_int($this->width)) {
+            $this->error = "You have to enter only integer number for width";
+        } elseif (!is_int($this->height)) {
+
+            $this->error = "You have to enter only integer number for height";
+        } elseif ($this->width < 0) {
+
+            $this->error = "You have to enter width more than 0";
+        } elseif ($this->height < 0) {
+
+            $this->error = "You have to enter height more than 0";
         }
+
+        if ($this->error != "") {
+            $this->isValid = false;
+        }
+    }
+
+    protected function isValid()
+    {
+
+        return $this->isValid;
     }
 
     protected function run()
@@ -81,7 +85,7 @@ class ChessBoard extends Task
     }
 }
 
-$task1 = new ChessBoard(5, 6, "*");
+$task1 = new ChessBoard(-17, 19, "*");
 echo $task1->resolveAsString();
 
 ?>
