@@ -1,25 +1,6 @@
 <?php
 
-abstract class Task
-{
-
-    abstract protected function run();
-    abstract protected function isValid();
-    abstract protected function validate();
-
-    public function resolveAsString()
-    {
-        $this->validate();
-
-        if (!$this->isValid()) {
-            return $this->error;
-        } else {
-            return $this->run();
-        }
-    }
-
-
-}
+require_once "Task.php";
 
 class ChessBoard extends Task
 {
@@ -28,7 +9,7 @@ class ChessBoard extends Task
     protected $symbol;
 
     const space = "&nbsp";
-    const newRow = "<br>";
+    const newRow = "</br>";
 
     public function __construct($width, $height, $symbol)
     {
@@ -85,7 +66,5 @@ class ChessBoard extends Task
     }
 }
 
-$task1 = new ChessBoard(-17, 19, "*");
-echo $task1->resolveAsString();
 
 ?>
