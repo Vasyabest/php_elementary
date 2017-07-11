@@ -29,5 +29,4 @@ print_r($petShop->getWhiteOrFluffyPets());
 echo "<br><br>";
 print_r($petShop->getExpensivePets());
 echo "<br><br>";
-echo "<h1>preved></h1>";
 ?>
