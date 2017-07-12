@@ -17,10 +17,10 @@ class PetShop
     public function getCats()
     {
         $cats = [];
-
-        for ($i = 0; $i < count($this->pets); $i++){
-            if ($this->pets[$i]  instanceof Cat) {
-                $cats[] = $this->pets[$i];
+        
+        foreach ($this->pets as $pet) {
+            if ($pet instanceof Cat) {
+                $cats[] = $pet;
             }
         }
         
@@ -30,9 +30,9 @@ class PetShop
     protected function getAveragePrice()
     {
         $allPricesPets = 0;
-
-        for ($i = 0; $i < count($this->pets); $i++) {
-            $allPricesPets +=  $this->pets[$i]->getPrice();
+        
+        foreach ($this->pets as $pet) {
+            $allPricesPets +=  $pet->getPrice();
         }
         $averagePricePets = $allPricesPets/count($this->pets);
 
@@ -42,10 +42,11 @@ class PetShop
     public function getExpensivePets()
     {
         $expensivePets = [];
-
-        for ($i = 0; $i < count($this->pets); $i++) {
-            if ($this->pets[$i]->getPrice() > $this->getAveragePrice()) {
-                $expensivePets[] = $this->pets[$i];                
+        $averagePrice = $this->getAveragePrice();
+        
+        foreach ($this->pets as $pet) {
+            if ($pet->getPrice() > $averagePrice) {
+                $expensivePets[] = $pet;                
             }
         }
 
@@ -56,9 +57,10 @@ class PetShop
     {
         $fluffyOrWhite = [];
 
-        for ($i = 0; $i < count($this->pets); $i++){
-            if(($this->pets[$i]->isColor() == "White") || ($this->pets[$i]->isFluffy() == true)){
-                $fluffyOrWhite[] = $this->pets[$i];
+//        for ($i = 0; $i < count($this->pets); $i++){
+        foreach ($this->pets as $pet){
+            if(($pet->isColor() == "White") || ($pet->isFluffy() == true)){
+                $fluffyOrWhite[] = $pet;
             }
         }
 

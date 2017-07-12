@@ -11,17 +11,22 @@ $objectsPets = json_decode($file);
 
 $petShop = new PetShop();
 
-for ($i = 0; $i<count($objectsPets->cats); $i++){
-    $petShop->addPet(new Cat($objectsPets->cats[$i]->name,$objectsPets->cats[$i]->color,$objectsPets->cats[$i]->price,
-        $objectsPets->cats[$i]->fluffy));
+foreach ($objectsPets->cats as $cat) {
+    $petShop->addPet(new Cat($cat->name,
+                             $cat->color,
+                             $cat->price,
+                             $cat->fluffy));
 }
 
-for ($i = 0; $i<count($objectsPets->dogs); $i++){
-    $petShop->addPet(new Dog($objectsPets->dogs[$i]->name,$objectsPets->dogs[$i]->color,$objectsPets->dogs[$i]->price));
+foreach ($objectsPets->dogs as $dog) {
+    $petShop->addPet(new Dog($dog->name,
+                             $dog->color,
+                             $dog->price));
 }
 
-for ($i = 0; $i<count($objectsPets->hamsters); $i++){
-    $petShop->addPet(new Hamster($objectsPets->hamsters[$i]->color,$objectsPets->hamsters[$i]->price));
+foreach ($objectsPets->hamsters as $hamster) {
+    $petShop->addPet(new Hamster($hamster->color,
+                                 $hamster->price));
 }
 
 print_r($petShop->getCats());
