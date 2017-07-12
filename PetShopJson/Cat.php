@@ -22,4 +22,3 @@ class Cat extends Pet
         return $this->name;
     }
 }
-?>

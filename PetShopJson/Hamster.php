@@ -17,6 +17,3 @@ class Hamster extends Pet
         return false;
     }
 }
-
-
-?>

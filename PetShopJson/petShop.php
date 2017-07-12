@@ -19,7 +19,7 @@ class PetShop
         $cats = [];
 
         for ($i = 0; $i < count($this->pets); $i++){
-            if (get_class($this->pets[$i]) == "Cat") {
+            if ($this->pets[$i]  instanceof Cat) {
                 $cats[] = $this->pets[$i];
             }
         }
@@ -57,7 +57,7 @@ class PetShop
         $fluffyOrWhite = [];
 
         for ($i = 0; $i < count($this->pets); $i++){
-            if(($this->pets[$i]->isColor() == "White") || ($this->pets[$i]->isFluffy() == 1)){
+            if(($this->pets[$i]->isColor() == "White") || ($this->pets[$i]->isFluffy() == true)){
                 $fluffyOrWhite[] = $this->pets[$i];
             }
         }
@@ -65,8 +65,6 @@ class PetShop
         return $fluffyOrWhite;
     }
 }
-
-?>
 
 
 

@@ -20,4 +20,3 @@ class Dog extends Pet
         return $this->name;
     }
 }
-?>
