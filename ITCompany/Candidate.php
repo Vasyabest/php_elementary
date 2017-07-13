@@ -2,13 +2,13 @@
 
 class Candidate extends Person
 {
-    private $requiredSalary;
-    private $profile = [];
+    protected $requiredSalary;
+    protected $cv;
 
-    public function __construct($name, $requiredSalary, $profile)
+    public function __construct($name, $requiredSalary, $cv)
     {
         $this->name = $name;
         $this->requiredSalary = $requiredSalary;
-        $this->profile = $profile;
+        $this->cv = $cv;
     }
 }

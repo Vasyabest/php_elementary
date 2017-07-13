@@ -3,5 +3,5 @@
 class ITCompany
 {
     public $candidates = [];
-    public $teams =[];
+    public $teams = [];
 }

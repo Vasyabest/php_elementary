@@ -1,6 +1,6 @@
 <?php
 
-abstract class hardWorker extends Worker
+abstract class HardWorker extends Worker
 {
     abstract public function doWork();
 }
