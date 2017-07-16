@@ -1,6 +1,10 @@
 <?php
+require_once 'isFluffy.php';
+
 class Cat extends Pet
 {
+    use isFluffy;
+    
     protected $name;
     protected $fluffy;
 
@@ -11,12 +15,7 @@ class Cat extends Pet
         $this->price = $price;
         $this->fluffy = $fluffy;
     }
-
-    public function isFluffy()
-    {
-        return $this->fluffy;
-    }
-
+    
     public function getName()
     {
         return $this->name;

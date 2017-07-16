@@ -1,6 +1,8 @@
 <?php
 class Dog extends Pet
 {
+    use isFluffy;
+    
     protected $name;
 
     public function __construct($name, $color, $price)
@@ -9,12 +11,7 @@ class Dog extends Pet
         $this->color = $color;
         $this->price = $price;
     }
-
-    public function isFluffy()
-    {
-        return false;
-    }
-
+ 
     public function getName()
     {
         return $this->name;
