@@ -4,12 +4,14 @@ require_once 'Pet.php';
 require_once 'Cat.php';
 require_once 'Dog.php';
 require_once 'Hamster.php';
-require_once 'FileController.php';
+require_once 'PetShopController.php';
 
 $path = 'pets.json';
+
 $petShop = new PetShop();
-//$objectsPets = new FileController($path);
-$objectsPets = Controller($path);
+$objPets = new PetShopController($path);
+
+$objectsPets = $objPets->getObjects($path);
 
 foreach ($objectsPets->cats as $cat) {
     $petShop->addPet(new Cat($cat->name,
@@ -28,13 +30,3 @@ foreach ($objectsPets->hamsters as $hamster) {
     $petShop->addPet(new Hamster($hamster->color,
                                  $hamster->price));
 }
-
-//echo($petShop->getCats());
-//echo "<br><br>";
-//print_r($petShop->getWhiteOrFluffyPets());
-//echo var_dump($petShop->getWhiteOrFluffyPets());
-//echo "<br><br>";
-//print_r($petShop->getExpensivePets());
-//echo "<br><br>";
-
-//print_r($objectsPets);
