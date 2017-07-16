@@ -29,9 +29,10 @@ foreach ($objectsPets->hamsters as $hamster) {
                                  $hamster->price));
 }
 
-print_r($petShop->getCats());
-echo "<br><br>";
-print_r($petShop->getWhiteOrFluffyPets());
-echo "<br><br>";
-print_r($petShop->getExpensivePets());
-echo "<br><br>";
+//echo($petShop->getCats());
+//echo "<br><br>";
+//print_r($petShop->getWhiteOrFluffyPets());
+//echo var_dump($petShop->getWhiteOrFluffyPets());
+//echo "<br><br>";
+//print_r($petShop->getExpensivePets());
+//echo "<br><br>";
