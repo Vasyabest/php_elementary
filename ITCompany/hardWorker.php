@@ -1,6 +1,10 @@
 <?php
+require_once "ITWorker.php";
 
-abstract class HardWorker extends Worker
+abstract class HardWorker extends Worker implements ITWorker
 {
-    abstract public function doWork();
+       public function doITWork()
+    {
+        return true;
+    }
 }

@@ -1,6 +1,7 @@
 <?php
+require_once 'ITWorker.php';
 
-class Candidate extends Person
+class Candidate extends Person implements ITWorker
 {
     protected $requiredSalary;
     protected $cv;
@@ -10,5 +11,10 @@ class Candidate extends Person
         $this->name = $name;
         $this->requiredSalary = $requiredSalary;
         $this->cv = $cv;
+    }
+
+    public function doITWork()
+    {
+        return true;
     }
 }
