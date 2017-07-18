@@ -2,19 +2,47 @@
 
 class ITCompany
 {
-    public static $candidates;
+    public $candidates = [];
     public $teams = [];
+    protected $hrTeam = null;
 
-
-    public static function addCandidates($candidate)
+    public function __construct(array $candidates, array $teams)
     {
-        self::$candidates[] = $candidate;
+        
+        $this->candidates = $candidates;
+        $this->teams = $teams;
+       // $this->hrTeam = new HrTeam($this);
+    }
+
+    public function addCandidates($candidate)
+    {
+        $this->candidates[] = $candidate;
     }
 
 
-    public static function getCandidates()
+    public  function getCandidates()
     {
-        return self::$candidates;
+        return $this->candidates;
     }
 
+    public function addTeam($team)
+    {
+        $teams[] = $team;
+    }
+
+    public function getTeams()
+    {
+        return $this->teams;
+    }
+
+    public function hire(Team $team)
+    {
+        if (!$team->isComplete()) {
+            $needs = $team->getNeeds();
+            foreach ($needs as $key => $need) {
+                
+                }
+            }
+        }
+    }
 }

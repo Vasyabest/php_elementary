@@ -8,31 +8,42 @@ require_once "Candidate.php";
 require_once "Dev.php";
 require_once "HR.php";
 require_once "PM.php";
-//require_once "QC.php";
-//require_once "QCRecruiter.php";
+require_once "QC.php";
+require_once "QCRecruiter.php";
 require_once 'HRTeam.php';
 
-$candidate1 = new Candidate('Vasya', 700, 'PM');
-$candidate2 = new Candidate('Alex', 600, 'PM');
-$candidate3 = new Candidate('Borya', 500, 'Dev');
-$candidate4 = new Candidate('Petya', 1000, 'Dev');
-$candidate5 = new Candidate('Misha', 300, 'Dev');
-$candidate6 = new Candidate('Serega', 900, 'Dev');
-$candidate7 = new Candidate('Katya', 1200, 'QC');
+$candidates = [];
+
+$candidates[] = new Candidate('Vasya', 700, 'PM');
+$candidates[] = new Candidate('Alex', 600, 'PM');
+$candidates[] = new Candidate('Borya', 500, 'Dev');
+$candidates[] = new Candidate('Petya', 1000, 'Dev');
+$candidates[] = new Candidate('Misha', 300, 'Dev');
+$candidates[] = new Candidate('Serega', 900, 'Dev');
+$candidates[] = new Candidate('Kolya', 200, 'Dev');
+$candidates[] = new Candidate('Katya', 1200, 'QC');
 
 
 
+$needs1 = ['DV'=>3, 'PM'=>1, 'QC'=>1];
+$needs2 = ['DV'=>2, 'PM'=>1, 'QC'=>0];
+$teamMembers = array('DV'=>0, 'PM'=>0, 'QC'=>0);
+
+$teamDnipro = new Team('Dnipro', 'AppleStore', $teamMembers, $needs1);
+$teamKharkov = new Team('Kharkov', 'Amazon', $teamMembers, $needs2);
+$teams = [$teamDnipro,$teamKharkov];
+
+echo '<h1>Get all teams separately</h1>';
+print_r($teamDnipro);
+print_r($teamKharkov);
+
+$ITCompanyRogaAndKopyta = new ITCompany($candidates, $teams);
+
+echo '<h1>Get Candidates</h1>';
+print_r($ITCompanyRogaAndKopyta->getCandidates());
+
+echo '<h1>Get all teams by getTeams</h1>';
+//print_r($ITCompanyRogaAndKopyta->getCandidates());
+print_r($ITCompanyRogaAndKopyta->getTeams());
 
 
-
-echo '<h1>Add Candidates</h1>';
-ITCompany::addCandidates($candidate1);
-ITCompany::addCandidates($candidate2);
-ITCompany::addCandidates($candidate3);
-ITCompany::addCandidates($candidate4);
-ITCompany::addCandidates($candidate5);
-ITCompany::addCandidates($candidate6);
-ITCompany::addCandidates($candidate7);
-
-$candidates = ITCompany::getCandidates();
-print_r($candidates);
