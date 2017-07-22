@@ -2,66 +2,37 @@
 
 class Team
 {
-    protected $teamName;
+    protected $name;
     protected $teamMembers = [];
-    protected $needs = [];
     protected $project;
+    protected $needs = [];
 
-    function __construct($teamName, $project, $teamMembers, $needs)
+    public function __construct($name, $project, $teamMembers, $needs)
     {
-        $this->teamName = $teamName;
+        $this->name = $name;
         $this->project = $project;
-        $this->needs = $needs;
         $this->teamMembers = $teamMembers;
+        $this->needs = $needs;
     }
-    //return needs workers as array
+
+    public function isCompleete()
+    {
+
+    }
+
     public function getNeeds()
     {
         return $this->needs;
     }
-    
-    public function getTeamName()
+
+    public function doJob()
     {
-        return $this->teamName;
+        return "Our team rules!";
     }
 
-    public function countNeeds()
-    {
-        return  $this->getNeeds()['DV']+$this->getNeeds()['PM']+$this->getNeeds()['QC'];
-    }
-
-    public function isComplete()
-    {
-        if (count($this->countNeeds()) === 0){
-            return true;
-        }
-        return false;
-    }
-
-    public function getWorkers(){
-        return $this->teamMembers;
-    }
-    
-    public function addTeamMember(Candidate $candidate)
-    {
-        $salary = $candidate->getRequiredSalary();
-        $position = $candidate->getCv();
-        $name = $candidate->getName();
-        switch ($position) {
-            case 'Dev':
-                $newTeamMember = new Dev($name, $salary, $position, $this->teamName);
-                array_push($this->teamMembers, $newTeamMember);
-                break;
-            case 'PM':
-                $newTeamMember = new PM($name, $salary, $position, $this->teamName);
-                array_push($this->teamMembers, $newTeamMember);
-                break;
-            case 'QC':
-                $newTeamMember = new QC($name, $salary, $position, $this->teamName);
-                array_push($this->teamMembers, $newTeamMember);
-                break;
-        }
-    }
-
+//    public function addNeeds()
+//    {
+//        
+//    }
 
 }

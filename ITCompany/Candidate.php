@@ -1,37 +1,15 @@
 <?php
-require_once 'ITWorker.php';
-require_once 'Person.php';
 
-class Candidate extends Person implements ITWorker
+class Candidate
 {
-    protected $requiredSalary;
-    protected $cv;
+    protected $wantedSalary;
+    protected $profile;
+    protected $experience;
 
-    public function __construct($name, $requiredSalary, $cv)
+    function __construct($wantedSalary, $profile, $experience)
     {
-        $this->requiredSalary = $requiredSalary;
-        $this->cv = $cv;
-        parent::__construct($name);
+        $this->wantedSalary = $wantedSalary;
+        $this->profile = $profile;
+        $this->experience = $experience;
     }
-
-    public function doITWork()
-    {
-        return true;
-    }
-
-    public function getRequiredSalary()
-    {
-        return $this->requiredSalary;
-    }
-
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    public function getCv()
-    {
-        return $this->cv;
-    }
-    
 }

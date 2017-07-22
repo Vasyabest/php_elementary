@@ -1,15 +1,15 @@
 <?php
 require_once "ITCompany.php";
-require_once "Person.php";
+//require_once "Person.php";
 require_once "Team.php";
-require_once "Worker.php";
-require_once "HardWorker.php";
+//require_once "Worker.php";
+//require_once "HardWorker.php";
 require_once "Candidate.php";
-require_once "Dev.php";
-require_once "HR.php";
-require_once "PM.php";
-require_once "QC.php";
-require_once "QCRecruiter.php";
+//require_once "Dev.php";
+//require_once "HR.php";
+//require_once "PM.php";
+//require_once "QC.php";
+//require_once "QCRecruiter.php";
 require_once 'HRTeam.php';
 
 $candidates = [];
@@ -41,9 +41,3 @@ $ITCompanyRogaAndKopyta = new ITCompany($candidates, $teams);
 
 echo '<h1>Get Candidates</h1>';
 print_r($ITCompanyRogaAndKopyta->getCandidates());
-
-echo '<h1>Get all teams by getTeams</h1>';
-//print_r($ITCompanyRogaAndKopyta->getCandidates());
-print_r($ITCompanyRogaAndKopyta->getTeams());
-
-

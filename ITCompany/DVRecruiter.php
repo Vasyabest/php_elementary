@@ -1,12 +1,10 @@
 <?php
 require_once 'Recruiter.php';
 
-class QCRecruiter extends Recruiter
+class DVRecruiter extends Recruiter
 {
-
     public function getSpecialist()
     {
         // TODO: Implement getSpecialist() method.
     }
-
 }
