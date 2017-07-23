@@ -20,10 +20,11 @@ class ITCompany
         if (!($team->isComplete())) {
             //$needs = ($team->getNeeds());
             foreach ($needs as $need => $value) {
-                if (($value > 0) && $this->hrTeam->canFindSpecialist($need)) {
+                while (($value > 0) && $this->hrTeam->canFindSpecialist($need)) {
                     $foundCandidate = $this->hrTeam->getSpecialist($need);
                     $team->addTeamMember($foundCandidate);
                     $this->deleteFromCandidates($foundCandidate);
+                    $value--;
                 }
             }
 

@@ -12,7 +12,7 @@ class PM extends HardSpecialist
     {
         $this->name = $name;
         $this->position = ProfileEnum::PM;
-        $this->$salary;
+        $this->salary;
     }
     
     public function getName()

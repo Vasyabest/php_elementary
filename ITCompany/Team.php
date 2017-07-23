@@ -49,9 +49,4 @@ class Team
         $this->teamMembers[] = $newTeamMember;
     }
 
-//    public function addNeeds()
-//    {
-//        
-//    }
-
 }

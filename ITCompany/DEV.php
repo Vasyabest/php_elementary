@@ -11,7 +11,7 @@ class Dev extends HardSpecialist
     {
         $this->name = $name;
         $this->position = ProfileEnum::DEV;
-        $this->$salary;
+        $this->salary = $salary;
     }
 
     public function getName()

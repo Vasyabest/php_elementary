@@ -2,14 +2,7 @@
 require_once "ITCompany.php";
 require_once "Person.php";
 require_once "Team.php";
-//require_once "Worker.php";
-//require_once "HardWorker.php";
 require_once "Candidate.php";
-//require_once "Dev.php";
-//require_once "HR.php";
-//require_once "PM.php";
-//require_once "QC.php";
-//require_once "QCRecruiter.php";
 require_once 'HRTeam.php';
 
 $candidates = [];
@@ -46,90 +39,22 @@ $ITCompanyRogaAndKopyta = new ITCompany($candidates, $teams);
 echo '<h1>Get Candidates</h1>';
 print_r($ITCompanyRogaAndKopyta->getCandidates());
 
-//echo '<h1>Get Recruterss</h1>';
-//print_r($ITCompanyRogaAndKopyta->getHRTeam()[0]);
-echo '<h1>Get Candidates</h1>';
-echo ($ITCompanyRogaAndKopyta->getTeams()[0]->countNeeds());
-echo (!$ITCompanyRogaAndKopyta->getTeams()[0]->isComplete());
-
-echo '<h1>Get Needs for team</h1>';
-print_r ($ITCompanyRogaAndKopyta->getTeams()[0]->getNeeds());
-
-
-echo '<h1>Get Candidates </h1>';
-print_r( ($ITCompanyRogaAndKopyta->getCandidates()[0]->getProfile()));
-
-echo '<h1>Get needs key-value</h1>';
-$needs = $ITCompanyRogaAndKopyta->getTeams()[0]->getNeeds();
-foreach ($needs as  $need=>$value) {
-
-    echo $need;
-    echo $value;
-}
-echo '<h1>Get needs words </h1>';
-$keys = array_keys($ITCompanyRogaAndKopyta->getTeams()[0]->getNeeds());
-foreach ($keys as $key){
-    //if ($key === 'PM')
-
-    echo $key;
-}
-
-echo '<h1>try get dev word</h1>';
-$array = array_keys($ITCompanyRogaAndKopyta->getTeams()[0]->getNeeds());
-//foreach ($keys as $key){
-//    //if ($key === 'PM')
-
-
-    echo $array;
-
-
-echo $teamDnipro->countNeeds();
-
-echo '<h1>canFindSpecialist</h1>';
-//print_r($ITCompanyRogaAndKopyta->hrTeam->getHRCandidates()[0]->getProfile());
-
-echo $ITCompanyRogaAndKopyta->hrTeam->canFindSpecialist("QC");
-
-echo '<h1>get spec</h1>';
-print_r($ITCompanyRogaAndKopyta->hrTeam->getSpecialist('Dev'));
-
-echo '<h1>Dnipro teams</h1>';
+echo '<h1>Before</h1>';
+echo '<h1>Dnipro team</h1>';
 print_r($teamDnipro);
-$teamDnipro->addTeamMember($candidates[4]);
+echo '<h1>Kharkov team</h1>';
+print_r($teamKharkov);
+echo '<h1>Candidates</h1>';
+print_r($candidates);
 
-echo '<h1>Dnipro teams added Petya</h1>';
+$ITCompanyRogaAndKopyta->hire($teamDnipro);
+
+
+echo '<h1>After</h1>';
+echo '<h1>Dnipro team</h1>';
 print_r($teamDnipro);
+echo '<h1>Kharkov team</h1>';
+print_r($teamKharkov);
+echo '<h1>Candidates</h1>';
+print_r($candidates);
 
-
-
-echo '<h1>test array</h1>';
-$testArray[] = new Candidate('Vasya', 700, 'PM');
-$testArray[] = new Candidate('Alex', 600, 'PM');
-$testArray[] = new Candidate('Tolik', 800, 'Dev');
-$testArray[] = new Candidate('Borya', 500, 'Dev');
-$testArray[] = new Candidate('Petya', 1000, 'Dev');
-$testArray[] = new Candidate('Misha', 300, 'Dev');
-$testArray[] = new Candidate('Serega', 900, 'Dev');
-$testArray[] = new Candidate('Kolya', 200, 'Dev');
-$testArray[] = new Candidate('Katya', 120, 'QC');
-$testArray[] = new Candidate('Filya', 300, 'QC');
-
-print_r($testArray);
-echo '<h1>test array</h1>';
-$testArray0 = $testArray[0];
-echo '<h1>test array000000000</h1>';
-
-
-
-
-
-
-$test1 = array_search($testArray0, $testArray);
-
-
-echo $test1;
-echo '<h1>del test array</h1>';
-
-
-array_splice($testArray, 0, 1);
-print_r($testArray);
