@@ -41,3 +41,26 @@ $ITCompanyRogaAndKopyta = new ITCompany($candidates, $teams);
 
 echo '<h1>Get Candidates</h1>';
 print_r($ITCompanyRogaAndKopyta->getCandidates());
+
+//echo '<h1>Get Recruterss</h1>';
+//print_r($ITCompanyRogaAndKopyta->getHRTeam()[0]);
+echo '<h1>Get Candidates</h1>';
+echo ($ITCompanyRogaAndKopyta->getTeams()[0]->countNeeds());
+echo (!$ITCompanyRogaAndKopyta->getTeams()[0]->isComplete());
+echo '<h1>Get Needs for team</h1>';
+print_r ($ITCompanyRogaAndKopyta->getTeams()[0]->getNeeds());
+
+
+echo '<h1>Get Candidates </h1>';
+print_r( ($ITCompanyRogaAndKopyta->getCandidates()[0]->getProfile()));
+
+echo '<h1>Get Candidates </h1>';
+$needs = $ITCompanyRogaAndKopyta->getTeams()[0]->getNeeds();
+foreach ($needs as  $key) {
+    echo $key;
+}
+echo '<h1>Get Candidates </h1>';
+$keys = array_keys($ITCompanyRogaAndKopyta->getTeams()[0]->getNeeds());
+foreach ($keys as $key){
+    echo $key;
+}

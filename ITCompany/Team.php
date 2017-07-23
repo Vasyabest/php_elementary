@@ -15,9 +15,17 @@ class Team
         $this->needs = $needs;
     }
 
-    public function isCompleete()
+    public function countNeeds()
     {
+        return  $this->getNeeds()['DV']+$this->getNeeds()['PM']+$this->getNeeds()['QC'];
+    }
 
+    public function isComplete()
+    {
+        if (count($this->countNeeds()) === 0){
+            return true;
+        }
+        return false;
     }
 
     public function getNeeds()

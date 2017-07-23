@@ -4,12 +4,17 @@ class Candidate
 {
     protected $wantedSalary;
     protected $profile;
-    protected $experience;
+    
 
-    function __construct($wantedSalary, $profile, $experience)
+    function __construct($name, $wantedSalary, $profile)
     {
+        $this->name = $name;
         $this->wantedSalary = $wantedSalary;
         $this->profile = $profile;
-        $this->experience = $experience;
+    }
+
+    public function getProfile()
+    {
+        return $this->profile;
     }
 }

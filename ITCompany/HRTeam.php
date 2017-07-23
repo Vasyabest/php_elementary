@@ -19,9 +19,15 @@ class HRTeam
         ];
     }
 
-    public function canFindSpecialist()
+    public function canFindSpecialist($needs)
     {
+        $this->needs = $needs;
+        //foreach ($this->needs as $this->need=>key)
+         {
 
+            return true;
+        }
+        return false;
     }
 
     public function getSpecialist()
