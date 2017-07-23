@@ -1,6 +1,6 @@
 <?php
 require_once "ITCompany.php";
-//require_once "Person.php";
+require_once "Person.php";
 require_once "Team.php";
 //require_once "Worker.php";
 //require_once "HardWorker.php";
@@ -16,7 +16,7 @@ $candidates = [];
 
 $candidates[] = new Candidate('Vasya', 700, 'PM');
 $candidates[] = new Candidate('Alex', 600, 'PM');
-$candidates[] = new Candidate('Ira', 800, 'Dev');
+$candidates[] = new Candidate('Tolik', 800, 'Dev');
 $candidates[] = new Candidate('Borya', 500, 'Dev');
 $candidates[] = new Candidate('Petya', 1000, 'Dev');
 $candidates[] = new Candidate('Misha', 300, 'Dev');
@@ -28,10 +28,13 @@ $candidates[] = new Candidate('Filya', 300, 'QC');
 //$needs3 = {'DV':2};
 $needs1 = ['Dev'=>4, 'PM'=>1, 'QC'=>1];
 $needs2 = ['Dev'=>3, 'PM'=>1, 'QC'=>0];
-$teamMembers = array('Dev'=>0, 'PM'=>0, 'QC'=>0);
+$teamMembersDnipro[] = new Dev('Irina', 1850);
+$teamMembersDnipro[] = new QC('Fedya', 500);
+$teamMembersKharkov[] = new PM('Sasha', 800);
+$teamMembersKharkov[] = new Dev('Vova',600);
 
-$teamDnipro = new Team('Dnipro', 'AppleStore', $teamMembers, $needs1);
-$teamKharkov = new Team('Kharkov', 'Amazon', $teamMembers, $needs2);
+$teamDnipro = new Team('Dnipro', 'AppleStore', $teamMembersDnipro, $needs1);
+$teamKharkov = new Team('Kharkov', 'Amazon', $teamMembersKharkov, $needs2);
 $teams = [$teamDnipro,$teamKharkov];
 
 echo '<h1>Get all teams separately</h1>';
@@ -89,3 +92,6 @@ echo $ITCompanyRogaAndKopyta->hrTeam->canFindSpecialist("QC");
 
 echo '<h1>canFindSpecialist</h1>';
 print_r($ITCompanyRogaAndKopyta->hrTeam->getSpecialist('Dev'));
+
+echo '<h1>Dnipro teams</h1>';
+print_r($teamMembersDnipro);

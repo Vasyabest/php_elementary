@@ -38,6 +38,16 @@ class Team
     {
         return "Our team rules!";
     }
+    
+    public function addTeamMember($foundCandidate)
+    {
+        $position = $foundCandidate->getProfile();
+        $salary = $foundCandidate->getWantedSalary();
+        $name = $foundCandidate->getName();
+        
+        $newTeamMember = new $position($name, $salary);
+        $this->teamMembers[] = $newTeamMember;
+    }
 
 //    public function addNeeds()
 //    {

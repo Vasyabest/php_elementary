@@ -6,4 +6,11 @@ class QC extends HardSpecialist
     {
         return "Im a best tester ))";
     }
+
+    public function __construct($name, $salary)
+    {
+        $this->name = $name;
+        $this->position = ProfileEnum::QC;
+        $this->$salary;
+    }
 }

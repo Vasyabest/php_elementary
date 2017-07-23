@@ -13,6 +13,11 @@ class Candidate
 
     }
 
+    public function getWantedSalary()
+    {
+        return $this->wantedSalary;
+    }
+    
     public function getProfile()
     {
         return $this->profile;

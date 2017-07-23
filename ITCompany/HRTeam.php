@@ -1,12 +1,12 @@
 <?php
 require_once 'ProfileEnum.php';
 require_once 'PMRecruiter.php';
-require_once 'DEVRecruiter.php';
+require_once 'DevRecruiter.php';
 require_once 'QCRecruiter.php';
 
 class HRTeam
 {
-    protected $recruters;
+    protected $recruiters;
     protected $candidates;
 
     public function __construct($ITCompany)
@@ -14,7 +14,7 @@ class HRTeam
         $this->candidates = $ITCompany->getCandidates();
         $this->recruiters = [
             ProfileEnum::PM => new PMRecruiter(),
-            ProfileEnum::DEV=> new DEVRecruiter(),
+            ProfileEnum::DEV=> new DevRecruiter(),
             ProfileEnum::QC=> new QCRecruiter()
         ];
     }

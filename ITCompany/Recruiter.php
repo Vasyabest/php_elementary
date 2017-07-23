@@ -7,7 +7,7 @@ abstract class Recruiter
     {
         foreach ($candidates as $key => $candidate) {
             if ($candidate->getProfile() === $need) {
-                return $candidate;
+                return $candidate; 
             }
         }
     }

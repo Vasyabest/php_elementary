@@ -21,8 +21,8 @@ class ITCompany
             //$needs = ($team->getNeeds());
             foreach ($needs as $need => $value) {
                 if (($value > 0) && $this->hrTeam->canFindSpecialist($need)) {
-                    
-
+                    $foundCandidate = $this->hrTeam->getSpecialist($need);
+                    $team->addTeamMember($foundCandidate);
                 }
             }
 
