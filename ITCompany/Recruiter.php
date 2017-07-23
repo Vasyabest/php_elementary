@@ -3,5 +3,12 @@
 
 abstract class Recruiter
 {
-    abstract public function getSpecialist();
+    public function getSpecialist($need, $candidates)
+    {
+        foreach ($candidates as $key => $candidate) {
+            if ($candidate->getProfile() === $need) {
+                return $candidate;
+            }
+        }
+    }
 }

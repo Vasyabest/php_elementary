@@ -1,7 +1,7 @@
 <?php
 class ProfileEnum
 {
-    const Dev = "Dev";
+    const DEV = "Dev";
     const QC = "QC";
     const PM = "PM";
 }

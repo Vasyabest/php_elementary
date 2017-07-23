@@ -1,7 +1,7 @@
 <?php
 require_once 'ProfileEnum.php';
 require_once 'PMRecruiter.php';
-require_once 'DVRecruiter.php';
+require_once 'DEVRecruiter.php';
 require_once 'QCRecruiter.php';
 
 class HRTeam
@@ -9,30 +9,39 @@ class HRTeam
     protected $recruters;
     protected $candidates;
 
-    public function __construct($candidates)
+    public function __construct($ITCompany)
     {
-        $this->candidates = $candidates;
+        $this->candidates = $ITCompany->getCandidates();
         $this->recruiters = [
             ProfileEnum::PM => new PMRecruiter(),
-            ProfileEnum::Dev=> new DVRecruiter(),
+            ProfileEnum::DEV=> new DEVRecruiter(),
             ProfileEnum::QC=> new QCRecruiter()
         ];
     }
 
-    public function canFindSpecialist($needs)
+    public function canFindSpecialist($need)
     {
-        $this->needs = $needs;
-        //foreach ($this->needs as $this->need=>key)
+        foreach ($this->candidates as $candidate)
          {
+             if ($candidate->getProfile() === $need) {
 
-            return true;
+                 return true;
+             }
         }
+        
         return false;
     }
 
-    public function getSpecialist()
+    public function getSpecialist($need)
     {
+        $candidate = $this->recruiters[$need]->getSpecialist($need, $this->candidates);
         
+        return $candidate;
+    }
+    
+    public function getHRCandidates()
+    {
+        return $this->candidates;
     }
 
 

@@ -17,14 +17,15 @@ class Team
 
     public function countNeeds()
     {
-        return  $this->getNeeds()['DV']+$this->getNeeds()['PM']+$this->getNeeds()['QC'];
+        return  $this->getNeeds()['Dev']+$this->getNeeds()['PM']+$this->getNeeds()['QC'];
     }
 
     public function isComplete()
     {
-        if (count($this->countNeeds()) === 0){
+        if ($this->countNeeds() === 0) {
             return true;
         }
+        
         return false;
     }
 

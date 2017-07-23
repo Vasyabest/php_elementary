@@ -4,7 +4,7 @@ class ITCompany
 {
     protected $candidates = [];
     protected $teams = [];
-    protected $hrTeam = NULL;
+    public $hrTeam = NULL;
 
     function __construct($candidates, $teams)
     {
@@ -15,16 +15,19 @@ class ITCompany
 
     public function hire(Team $team)
     {
-        $this->team = $team;
-        $this->needs = $team->getNeeds();
+       // $this->team = $team;
+        $needs = $team->getNeeds();
         if (!($team->isComplete())) {
-            $needs = array_keys($team->getNeeds());
-            foreach ($needs as $key => $need) {
-                
+            //$needs = ($team->getNeeds());
+            foreach ($needs as $need => $value) {
+                if (($value > 0) && $this->hrTeam->canFindSpecialist($need)) {
+                    
+
+                }
             }
 
             
-            return "Team cant be completed";
+//            return "Team cant be completed";
         }
         
         return "Team is complete!";
