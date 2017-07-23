@@ -21,8 +21,7 @@ class HRTeam
 
     public function canFindSpecialist($need)
     {
-        foreach ($this->candidates as $candidate)
-         {
+        foreach ($this->candidates as $candidate) {
              if ($candidate->getProfile() === $need) {
 
                  return true;
@@ -44,6 +43,11 @@ class HRTeam
         return $this->candidates;
     }
 
+    public function deleteFromCandidates($candidate)
+    {
+        $index = array_search($candidate, $this->candidates);
+        array_splice($this->candidates, $index, 1);
 
-
+        return $this->candidates;
+    }
 }

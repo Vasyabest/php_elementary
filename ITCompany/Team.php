@@ -39,7 +39,12 @@ class Team
         return "Our team rules!";
     }
     
-    public function addTeamMember($foundCandidate)
+    public function getTeamMembers()
+    {
+        return $this->teamMembers;
+    }
+    
+    public function addTeamMember(Candidate $foundCandidate)
     {
         $position = $foundCandidate->getProfile();
         $salary = $foundCandidate->getWantedSalary();

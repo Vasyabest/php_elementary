@@ -6,7 +6,7 @@ class ITCompany
     protected $teams = [];
     public $hrTeam = NULL;
 
-    function __construct($candidates, $teams)
+    function __construct($teams, $candidates)
     {
         $this->candidates = $candidates;
         $this->teams = $teams;
@@ -15,21 +15,19 @@ class ITCompany
 
     public function hire(Team $team)
     {
+
+
        // $this->team = $team;
         $needs = $team->getNeeds();
         if (!($team->isComplete())) {
-            //$needs = ($team->getNeeds());
             foreach ($needs as $need => $value) {
                 while (($value > 0) && $this->hrTeam->canFindSpecialist($need)) {
                     $foundCandidate = $this->hrTeam->getSpecialist($need);
                     $team->addTeamMember($foundCandidate);
-                    $this->deleteFromCandidates($foundCandidate);
+                    $this->hrTeam->deleteFromCandidates($foundCandidate);
                     $value--;
                 }
             }
-
-            
-//            return "Team cant be completed";
         }
         
         return "Team is complete!";
@@ -40,13 +38,6 @@ class ITCompany
 
     }
 
-    public function deleteFromCandidates($candidate)
-    {
-        $index = array_search($candidate, $this->candidates);
-        array_splice($this->candidates, $index, 1);
-
-        return $this->candidates;
-    }
 
     public function getCandidates()
     {
@@ -62,4 +53,11 @@ class ITCompany
     {
         return $this->teams;
     }
+    
+    public function addCandidate($name, $salary, $profile)
+    {
+        $this->candidates[] = new Candidate($name, $salary, $profile);
+    }
+    
+    
 }
