@@ -11,7 +11,7 @@ class QC extends HardSpecialist
     {
         $this->name = $name;
         $this->position = ProfileEnum::QC;
-        $this->salary;
+        $this->salary = $salary;
     }
 
     public function getName()
