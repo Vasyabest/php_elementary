@@ -26,7 +26,7 @@ $candidates[] = new Candidate('Katya', 120, 'QC');
 $candidates[] = new Candidate('Filya', 300, 'QC');
 
 //$needs3 = {'DV':2};
-$needs1 = ['Dev'=>4, 'PM'=>1, 'QC'=>1];
+$needs1 = ['Dev'=>2, 'PM'=>1, 'QC'=>1];
 $needs2 = ['Dev'=>3, 'PM'=>1, 'QC'=>0];
 $teamMembersDnipro[] = new Dev('Irina', 1850);
 $teamMembersDnipro[] = new QC('Fedya', 500);
@@ -90,8 +90,46 @@ echo '<h1>canFindSpecialist</h1>';
 
 echo $ITCompanyRogaAndKopyta->hrTeam->canFindSpecialist("QC");
 
-echo '<h1>canFindSpecialist</h1>';
+echo '<h1>get spec</h1>';
 print_r($ITCompanyRogaAndKopyta->hrTeam->getSpecialist('Dev'));
 
 echo '<h1>Dnipro teams</h1>';
-print_r($teamMembersDnipro);
+print_r($teamDnipro);
+$teamDnipro->addTeamMember($candidates[4]);
+
+echo '<h1>Dnipro teams added Petya</h1>';
+print_r($teamDnipro);
+
+
+
+echo '<h1>test array</h1>';
+$testArray[] = new Candidate('Vasya', 700, 'PM');
+$testArray[] = new Candidate('Alex', 600, 'PM');
+$testArray[] = new Candidate('Tolik', 800, 'Dev');
+$testArray[] = new Candidate('Borya', 500, 'Dev');
+$testArray[] = new Candidate('Petya', 1000, 'Dev');
+$testArray[] = new Candidate('Misha', 300, 'Dev');
+$testArray[] = new Candidate('Serega', 900, 'Dev');
+$testArray[] = new Candidate('Kolya', 200, 'Dev');
+$testArray[] = new Candidate('Katya', 120, 'QC');
+$testArray[] = new Candidate('Filya', 300, 'QC');
+
+print_r($testArray);
+echo '<h1>test array</h1>';
+$testArray0 = $testArray[0];
+echo '<h1>test array000000000</h1>';
+
+
+
+
+
+
+$test1 = array_search($testArray0, $testArray);
+
+
+echo $test1;
+echo '<h1>del test array</h1>';
+
+
+array_splice($testArray, 0, 1);
+print_r($testArray);

@@ -23,6 +23,7 @@ class ITCompany
                 if (($value > 0) && $this->hrTeam->canFindSpecialist($need)) {
                     $foundCandidate = $this->hrTeam->getSpecialist($need);
                     $team->addTeamMember($foundCandidate);
+                    $this->deleteFromCandidates($foundCandidate);
                 }
             }
 
@@ -36,6 +37,14 @@ class ITCompany
     public function gotFun()
     {
 
+    }
+
+    public function deleteFromCandidates($candidate)
+    {
+        $index = array_search($candidate, $this->candidates);
+        array_splice($this->candidates, $index, 1);
+
+        return $this->candidates;
     }
 
     public function getCandidates()

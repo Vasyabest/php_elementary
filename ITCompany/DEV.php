@@ -13,4 +13,9 @@ class Dev extends HardSpecialist
         $this->position = ProfileEnum::DEV;
         $this->$salary;
     }
+
+    public function getName()
+    {
+        return $this->name;
+    }
 }

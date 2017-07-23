@@ -14,4 +14,9 @@ class PM extends HardSpecialist
         $this->position = ProfileEnum::PM;
         $this->$salary;
     }
+    
+    public function getName()
+    {
+        return $this->name;
+    }
 }

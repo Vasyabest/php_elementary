@@ -22,4 +22,9 @@ class Candidate
     {
         return $this->profile;
     }
+
+    public function getName()
+    {
+        return $this->name;
+    }
 }
