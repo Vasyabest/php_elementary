@@ -1,11 +1,11 @@
-<?php include_once 'main.php' ?>
+<?php require_once '../models/main.php' ?>
 
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
         <title>PetShop</title>
-        <link href="styles/main.css" rel="stylesheet">
+        <link href="../styles/main.css" rel="stylesheet">
     </head>
     <body>
         <table>

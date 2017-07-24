@@ -1,10 +1,11 @@
 <?php
-require_once 'PetShop.php';
+require_once 'petShop.php';
 require_once 'Pet.php';
 require_once 'Cat.php';
 require_once 'Dog.php';
 require_once 'Hamster.php';
-require_once 'PetShopController.php';
+require_once '../controllers/PetShopController.php';
+
 
 $path = 'pets.json';
 
