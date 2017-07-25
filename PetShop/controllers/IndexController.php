@@ -21,8 +21,8 @@ class IndexController
     public function whiteOrFluffyAction()
     {
         $petShop = $this->petShop;
-        $whitePets = $petShop->getWhiteOrFluffyPets();
-        $data = array('whitePets'=>$whitePets);
+        $whiteOrFluffy = $petShop->getWhiteOrFluffyPets();
+        $data = array('whiteOrFluffy'=>$whiteOrFluffy);
         $view = $this->view;
         $view->render('/views/whiteOrFluffy.php', $data);
     }

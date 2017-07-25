@@ -1,8 +1,8 @@
 <?php
 abstract class Pet
 {
-    protected $price;
-    protected $color;
+    public $price;
+    public $color;
 
     abstract public function isFluffy();
     abstract public function getName();

@@ -2,7 +2,7 @@
 class Dog extends Pet
 {
     use isFluffy;
-    
+
     protected $name;
 
     public function __construct($name, $color, $price)

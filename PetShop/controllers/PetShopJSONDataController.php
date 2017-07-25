@@ -1,5 +1,5 @@
 <?php
-class PetShopController
+class PetShopJSONDataController
 {
     public function getObjects($path)
     {

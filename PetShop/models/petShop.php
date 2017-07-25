@@ -2,18 +2,43 @@
 
 class PetShop
 {
-    private $pets = array();
-
-    public function addPet($newPet)
+    private $pets = [];
+    
+    public function __construct()
     {
-        $this->pets[] = $newPet;
+        $this->pets = $this->getPets();
     }
 
-    public function getPets()
+    private function getPets()
     {
-        return $this->pets;
-    }
+        $pets = [];
 
+        $path = 'pets.json';
+        $objPets = new PetShopJSONDataController($path);
+        
+        $objectsPets = $objPets->getObjects($path);
+
+        foreach ($objectsPets->cats as $cat) {
+            $pets [] = new Cat($cat->name,
+                            $cat->color,
+                            $cat->price,
+                            $cat->fluffy);
+        }
+
+        foreach ($objectsPets->dogs as $dog) {
+            $pets [] = new Dog($dog->name,
+                            $dog->color,
+                            $dog->price);
+        }
+
+        foreach ($objectsPets->hamsters as $hamster) {
+            $pets [] = new Hamster($hamster->color,
+                                $hamster->price);
+        }
+        
+        return $pets;
+    }
+           
     public function getCats()
     {
         $cats = [];
@@ -56,8 +81,7 @@ class PetShop
     public function getWhiteOrFluffyPets()
     {
         $fluffyOrWhite = [];
-
-//        for ($i = 0; $i < count($this->pets); $i++){
+        
         foreach ($this->pets as $pet){
             if(($pet->isColor() == "White") || ($pet->isFluffy() == true)){
                 $fluffyOrWhite[] = $pet;
