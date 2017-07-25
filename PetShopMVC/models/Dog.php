@@ -10,6 +10,7 @@ class Dog extends Pet
         $this->name = $name;
         $this->color = $color;
         $this->price = $price;
+        $this->type = 'dog';
     }
  
     public function getName()

@@ -2,52 +2,17 @@
 
 class PetShop
 {
-    private $pets = [];
-
-
-
-    public function __construct()
-    {
-        $this->pets = $this->getPets();
-    }
-
-    private function getPets()
-    {
-        $pets = [];
-
-        $path = 'pets.json';
-        $objPets = new PetShopController($path);
-        
-        $objectsPets = $objPets->getObjects($path);
-
-        foreach ($objectsPets->cats as $cat) {
-            $pets = new Cat($cat->name,
-                            $cat->color,
-                            $cat->price,
-                            $cat->fluffy);
-        }
-
-        foreach ($objectsPets->dogs as $dog) {
-            $pets = new Dog($dog->name,
-                            $dog->color,
-                            $dog->price);
-        }
-
-        foreach ($objectsPets->hamsters as $hamster) {
-            $pets = new Hamster($hamster->color,
-                                $hamster->price);
-        }
-        
-        return $pets;
-    }
-
+    private $pets = array();
 
     public function addPet($newPet)
     {
         $this->pets[] = $newPet;
     }
 
-
+    public function getPets()
+    {
+        return $this->pets;
+    }
 
     public function getCats()
     {

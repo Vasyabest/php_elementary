@@ -33,6 +33,6 @@ class IndexController
         $data = array('expensivePets'=>$expensivePets);
 
         $view = $this->view;
-        $view->render('/views/expensivePets.php', $data);
+        $view->render('/views/expensive.php', $data);
     }
 }
