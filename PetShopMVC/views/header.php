@@ -11,17 +11,14 @@
     <title>PetShop</title>
 </head>
 <body>
-<div class="page-header">
-    <a class="btn btn-default" href="/company/team" role="button">IT Company</a>
-    <h1>Pet Shop</h1>
-</div>
+
 <div class="row">
     <div class="col-md-2">
         <div class="list-group">
-            <a href="/views/template" class="list-group-item">Cats</a>
-            <a href="/views/whiteOrFluffy" class="list-group-item">Fluffy pets</a>
-           
-            <a href="/views/expensive" class="list-group-item">Expensive pets</a>
+            <a href="/index/index" class="list-group-item">Cats</a>
+            <a href="/index/whiteOrFluffy" class="list-group-item">Fluffy pets</a>
+
+            <a href="/index/expensive" class="list-group-item">Expensive pets</a>
         </div>
     </div>
     <div class="col-md-10">

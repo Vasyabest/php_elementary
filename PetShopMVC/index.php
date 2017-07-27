@@ -18,6 +18,6 @@ $router = new Router();
 //$router->controllers['whiteOrFluffy'] = new IndexController();
 //$router->controllers['expensive'] = new IndexController();
 
-$router->controllers['pet'] = 'IndexController';
+$router->controllers['index'] = 'IndexController';
 
 $router->execute();

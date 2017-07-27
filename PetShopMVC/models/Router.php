@@ -11,19 +11,19 @@ class Router
         
         list($controller, $action) = array_replace([null, null], $parts);
         
-        $controller = $controller ?: 'pet';
-        $action = $action ?: 'cats';
+        $controller = $controller ?: 'index';
+        $action = $action ?: 'index';
         
         if (!array_key_exists($controller, $this->controllers)) {
-            $controller = 'pet';
-            $action = 'cats';
+            $controller = 'index';
+            $action = 'index';
         }
         
-        $instance = $this->controllers[$controller];
+        $instance = new $this->controllers[$controller];
         
         if (!method_exists($instance, $action . 'Action')) {
-            $controller = 'pet';
-            $action = 'cats';
+            $controller = 'index';
+            $action = 'index';
         }
         call_user_func([$instance, $action . 'Action']);
     }
