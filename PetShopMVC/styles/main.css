@@ -1,0 +1,21 @@
+table {
+    border: 1px solid black;
+    padding: 0;
+    border-collapse: collapse;
+    width: 400px;
+    background-color: rgba(208, 238, 255, 0.6);
+}
+
+td, th {
+    border: 1px solid black;
+    padding: 4px;
+    text-align: center;
+}
+
+th {
+    background-color: rgba(136, 197, 255, 0.76);
+}
+
+tr:hover {
+    background-color: #8bc2ee;
+}

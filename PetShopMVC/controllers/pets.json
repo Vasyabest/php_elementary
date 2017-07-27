@@ -1,0 +1,85 @@
+{
+  "cats": [
+    {
+      "name": "Grisha",
+      "color": "Grey",
+      "price": 1000,
+      "fluffy": true
+    },
+
+    {
+      "name": "Gosha",
+      "color": "Black",
+      "price": 500,
+      "fluffy": true
+    },
+
+    {
+      "name": "Lavrik",
+      "color": "Red",
+      "price": 700,
+      "fluffy": true
+    },
+
+    {
+      "name": "Mikhail",
+      "color": "White",
+      "price": 800,
+      "fluffy": true
+    },
+
+    {
+      "name": "Boris",
+      "color": "White",
+      "price": 750,
+      "fluffy": true
+    }
+  ],
+  "dogs": [
+    {
+      "name": "Barsik",
+      "color": "White",
+      "price": 300
+    },
+
+    {
+      "name": "Shpuntik",
+      "color": "Grey",
+      "price": 100
+    },
+
+    {
+      "name": "Balalaikin",
+      "color": "Blue",
+      "price": 600
+    },
+
+    {
+      "name": "Gazzaev",
+      "color": "Purple",
+      "price": 200
+    }
+  ],
+
+  "hamsters": [
+    {
+      "color": "White",
+      "price": 700
+    },
+
+    {
+      "color": "Brown",
+      "price": 900
+    },
+
+    {
+      "color": "Grey",
+      "price": 800
+    },
+
+    {
+      "color": "Red",
+      "price": 350
+    }
+  ]
+}
