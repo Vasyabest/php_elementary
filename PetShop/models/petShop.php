@@ -3,6 +3,11 @@
 class PetShop
 {
     private $pets = [];
+    private $table = 'petsdb';
+    private $host = 'localhost';
+    private $dbName = 'pet_shop_db';
+    private $user = 'root';
+    private $password = '';
     
     public function __construct()
     {
@@ -11,33 +16,30 @@ class PetShop
 
     private function getPets()
     {
+        $db = new ConnectionDataBaseSQL($this->host, $this->dbName, $this->user, $this->password);
+        $petsDb = $db->selectAll($this->table);
+
+        if(!empty($petsDb)){
+            return $this->createObject($petsDb);
+        }
+
+    }
+
+    private function createObject($petsDb)
+    {
         $pets = [];
-
-        $path = 'pets.json';
-        $objPets = new PetShopJSONDataController($path);
-        
-        $objectsPets = $objPets->getObjects($path);
-
-        foreach ($objectsPets->cats as $cat) {
-            $pets [] = new Cat($cat->name,
-                            $cat->color,
-                            $cat->price,
-                            $cat->fluffy);
+        foreach ($petsDb as $pet){
+            if ($pet['kind'] === "cat"){
+                $pets[] = new Cat($pet['id'], $pet['name'], $pet['price'], $pet['color'], $pet['fluffiness']);
+            } elseif ($pet['kind'] === "dog"){
+                $pets[] = new Dog($pet['id'], $pet['name'], $pet['price'], $pet['color']);
+            } else {
+                $pets[] = new Hamster($pet['id'], $pet['price'], $pet['color']);
+            }
         }
-
-        foreach ($objectsPets->dogs as $dog) {
-            $pets [] = new Dog($dog->name,
-                            $dog->color,
-                            $dog->price);
-        }
-
-        foreach ($objectsPets->hamsters as $hamster) {
-            $pets [] = new Hamster($hamster->color,
-                                $hamster->price);
-        }
-        
         return $pets;
     }
+
            
     public function getCats()
     {
