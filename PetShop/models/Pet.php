@@ -3,6 +3,7 @@ abstract class Pet
 {
     public $price;
     public $color;
+    public $type;
 
     abstract public function isFluffy();
     abstract public function getName();
@@ -16,4 +17,12 @@ abstract class Pet
     {
         return $this->color;
     }
+    
+    public function getType()
+    {
+        return $this->type;
+    }
+    
+    
+    
 }

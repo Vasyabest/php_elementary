@@ -3,20 +3,20 @@ class IndexController
 {
     private $petShop;
     private $view;
+
     public function __construct()
     {
         $this->petShop = new PetShop();
         $this->view = new View();
     }
+
     public function indexAction()
     {
-        $petShop = $this->petShop;
-        $cats = $petShop->getCats();
+        $cats = $this->petShop->getCats();
         $data = array('cats'=>$cats);
-        $view = $this->view;
-        $view->render('/views/template.php', $data);
-    }
 
+        $this->view->render('/views/template.php', $data);
+    }
 
     public function whiteOrFluffyAction()
     {
@@ -26,6 +26,7 @@ class IndexController
         $view = $this->view;
         $view->render('/views/whiteOrFluffy.php', $data);
     }
+
     public function expensiveAction()
     {
         $petShop = $this->petShop;

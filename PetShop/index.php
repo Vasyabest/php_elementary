@@ -14,7 +14,7 @@ spl_autoload_register(function ()
 });
 $router = new Router();
 
-$router->controllers['index'] = new IndexController();
-$router->controllers['whiteOrFluffy'] = new IndexController();
-$router->controllers['expensive'] = new IndexController();
+
+$router->controllers['index'] = 'IndexController';
+
 $router->execute();
