@@ -14,7 +14,7 @@ class Cat extends Pet
         $this->color = $color;
         $this->price = $price;
         $this->fluffy = $fluffy;
-        $this->type = 'cat';
+        $this->type = 'Cat';
     }
     
     public function getName()

@@ -19,7 +19,10 @@ $router->controllers['index'] = 'IndexController';
 $router->execute();
 
 
-//$db = new ConnectionDataBaseSQL("localhost", "pet_shop_db", "root", "");
+//$db = new ConnectionDBSQL("localhost", "pet_shop_db", "root", "");
 //$petsDb = $db->selectAll("petsdb");
 //
 //var_dump($petsDb);
+
+//$shop = new PetShop();
+//var_dump($shop);

@@ -16,27 +16,30 @@ class PetShop
 
     private function getPets()
     {
-        $db = new ConnectionDataBaseSQL($this->host, $this->dbName, $this->user, $this->password);
+        $db = new ConnectionDBSQL($this->host, $this->dbName, $this->user, $this->password);
         $petsDb = $db->selectAll($this->table);
 
         if(!empty($petsDb)){
             return $this->createObject($petsDb);
         }
 
+        return $petsDb;
     }
 
     private function createObject($petsDb)
     {
         $pets = [];
+
         foreach ($petsDb as $pet){
-            if ($pet['kind'] === "cat"){
-                $pets[] = new Cat($pet['id'], $pet['name'], $pet['price'], $pet['color'], $pet['fluffiness']);
-            } elseif ($pet['kind'] === "dog"){
+            if ($pet['type'] === "Cat"){
+                $pets[] = new Cat($pet['id'], $pet['name'], $pet['price'], $pet['color'], $pet['fluffy']);
+            } elseif ($pet['type'] === "Dog"){
                 $pets[] = new Dog($pet['id'], $pet['name'], $pet['price'], $pet['color']);
             } else {
                 $pets[] = new Hamster($pet['id'], $pet['price'], $pet['color']);
             }
         }
+
         return $pets;
     }
 

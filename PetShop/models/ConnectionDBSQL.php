@@ -1,6 +1,6 @@
 <?php
 
-class ConnectionDataBaseSQL
+class ConnectionDBSQL
 {
     private $pdo;
     private $dsn = 'mysql:host=localhost;dbname=pet_shop_db';

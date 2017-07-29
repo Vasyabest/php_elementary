@@ -9,7 +9,7 @@ class Hamster extends Pet
     {
         $this->color = $color;
         $this->price = $price;
-        $this->type = 'hamster';
+        $this->type = 'Hamster';
     }
     
     public function getName()
