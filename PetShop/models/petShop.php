@@ -32,11 +32,11 @@ class PetShop
 
         foreach ($petsDb as $pet){
             if ($pet['type'] === "Cat"){
-                $pets[] = new Cat($pet['id'], $pet['name'], $pet['price'], $pet['color'], $pet['fluffy']);
+                $pets[] = new Cat($pet['name'], $pet['color'], $pet['price'], $pet['fluffy']);
             } elseif ($pet['type'] === "Dog"){
-                $pets[] = new Dog($pet['id'], $pet['name'], $pet['price'], $pet['color']);
+                $pets[] = new Dog($pet['name'],  $pet['color'], $pet['price']);
             } else {
-                $pets[] = new Hamster($pet['id'], $pet['price'], $pet['color']);
+                $pets[] = new Hamster($pet['color'], $pet['price']);
             }
         }
 

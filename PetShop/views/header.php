@@ -15,10 +15,10 @@
 <div class="row">
     <div class="col-md-2">
         <div class="list-group">
-            <a href="/index/index" class="list-group-item">Cats</a>
-            <a href="/index/whiteOrFluffy" class="list-group-item">Fluffy pets</a>
+            <a href="/petShopIndex/getCats" class="list-group-item">Cats</a>
+            <a href="/petShopIndex/whiteOrFluffy" class="list-group-item">White or fluffy pets</a>
 
-            <a href="/index/expensive" class="list-group-item">Expensive pets</a>
+            <a href="/petShopIndex/expensive" class="list-group-item">Expensive pets</a>
         </div>
     </div>
     <div class="col-md-10">

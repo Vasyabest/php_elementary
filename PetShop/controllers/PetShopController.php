@@ -1,5 +1,5 @@
 <?php
-class IndexController
+class PetShopController
 {
     private $petShop;
     private $view;
@@ -10,7 +10,7 @@ class IndexController
         $this->view = new View();
     }
 
-    public function indexAction()
+    public function getCatsAction()
     {
         $cats = $this->petShop->getCats();
         $data = array('cats'=>$cats);
@@ -23,6 +23,7 @@ class IndexController
         $petShop = $this->petShop;
         $whiteOrFluffy = $petShop->getWhiteOrFluffyPets();
         $data = array('whiteOrFluffy'=>$whiteOrFluffy);
+        
         $view = $this->view;
         $view->render('/views/whiteOrFluffy.php', $data);
     }

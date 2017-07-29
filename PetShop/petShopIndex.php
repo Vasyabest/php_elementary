@@ -2,7 +2,7 @@
 spl_autoload_register(function ()
 {
     require_once 'models/Router.php';
-    require_once 'controllers/IndexController.php';
+    require_once 'controllers/PetShopController.php';
     require_once 'models/PetShop.php';
     require_once 'models/isFluffy.php';
     require_once 'models/Pet.php';
@@ -14,7 +14,7 @@ spl_autoload_register(function ()
 });
 
 $router = new Router();
-$router->controllers['index'] = 'IndexController';
+$router->controllers['petShopIndex'] = 'PetShopController';
 
 $router->execute();
 
