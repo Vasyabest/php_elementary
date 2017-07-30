@@ -12,13 +12,15 @@ class ITCompanyController
     public $password = 'admin';
     public $db;
     public $tableCandidate = 'candidates';
+    public $tableNeeds1 = 'needs1';
+    public $tableNeeds2 = 'needs2';
+
 
     public function __construct()
     {
         $this->db = new ConnectionDBSQL($this->dbName, $this->user, $this->password);
 
-        $candidatesFromDB = $this->getDataFromDB();
-        $this->candidates = $this->initializeCandidates($candidatesFromDB);
+        $this->candidates = $this->initializeCandidates();
 
         $teams = $this->initializeTeams();
 
@@ -49,17 +51,10 @@ class ITCompanyController
     }
 
 
-    public function getDataFromDB()
+    public function initializeCandidates()
     {
         $candidates = $this->db->selectAll($this->tableCandidate);
-        //var_dump($candidates);
-        return  $candidates;
-    }
 
-
-
-    public function initializeCandidates($candidates)
-    {
         $candidatesObj = [];
         foreach ($candidates as $candidate){
             $candidatesObj[] = new Candidate(
@@ -68,7 +63,7 @@ class ITCompanyController
                 $candidate['profile']
             );
         }
-        
+
         return $candidatesObj;
     }
 
@@ -76,8 +71,8 @@ class ITCompanyController
     {
         $teams = [];
 
-        $needs1 = ['Dev'=>2, 'PM'=>1, 'QC'=>1];
-        $needs2 = ['Dev'=>3, 'PM'=>1, 'QC'=>0];
+        $needs1 = $this->initializeNeeds($this->tableNeeds1);
+        $needs2 = $this->initializeNeeds($this->tableNeeds2);
         $teamMembersDnipro[] = new Dev('Irina', 1850);
         $teamMembersDnipro[] = new QC('Fedya', 500);
         $teamMembersKharkov[] = new PM('Sasha', 800);
@@ -89,4 +84,11 @@ class ITCompanyController
 
         return $teams;
     }
+
+    public function initializeNeeds($tableNeeds)
+    {
+        $needs = $this->db->selectAll($tableNeeds);
+        return $needs[0];
+    }
+
 }
