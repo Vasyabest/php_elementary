@@ -12,21 +12,22 @@ class ITCompanyController
         $this->view = new View();
     }
 
-    public function before()
+    public function getTeamsBeforeHiring()
     {
-        foreach ($this->ITCompany->getTeams() as $team) {
-            $data = array('team'=>$team);
-            $this->view->render('/views/template.php', $data);
-        }
+        $teams = $this->ITCompany->getTeams();
+        $data = array('teams'=>$teams);
+        $this->view->render('ITCompany/views/teamMemberListTemplate.php', $data);
     }
 
-    public function after()
+    public function getTeamsAfterHiring()
     {
         foreach ($this->ITCompany->getTeams() as $team) {
-            $this->ITCompany->hire($team);
-            $data = array('team'=>$team);
-            $this->view->render('/views/template.php', $data);
+            $this->ITCompany->hire($team);            
         }
+
+        $teams = $this->ITCompany->getTeams();
+        $data = array('teams'=>$teams);
+        $this->view->render('ITCompany/views/teamMemberListTemplate.php', $data);
     }
 
     public function initializeCandidates()

@@ -10,3 +10,5 @@ foreach ($whiteOrFluffy as $pet): ?>
         <td><?php echo $pet->isFluffy();?></td>
     </tr>
 <?php endforeach; ?>
+
+<?php include_once 'footer.php';?>

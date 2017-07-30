@@ -53,5 +53,10 @@ class Team
         $newTeamMember = new $position($name, $salary);
         $this->teamMembers[] = $newTeamMember;
     }
-
+    
+    public function getTeamName()
+    {
+        print_r($this->name);
+        return $this->name;
+    }
 }

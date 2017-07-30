@@ -12,21 +12,15 @@
 </head>
 <body>
 
+<div class="page-header">
+    <a class="btn btn-default" href="/index/petShop/getCats" role="button">Pet shop</a>
+    <h1>IT Company</h1>
+</div>
+
 <div class="row">
     <div class="col-md-2">
         <div class="list-group">
-            <a href="/index/index" class="list-group-item">Cats</a>
-            <a href="/index/whiteOrFluffy" class="list-group-item">Fluffy pets</a>
-
-            <a href="/index/expensive" class="list-group-item">Expensive pets</a>
+            <a href="/index/ITCompany/getTeamsBeforeHiring" class="list-group-item">Before</a>
+            <a href="/index/ITCompany/getTeamsAfterHiring" class="list-group-item">After</a>
         </div>
     </div>
-    <div class="col-md-10">
-        <table class="table table-hover">
-            <tr>
-                <td>Kind</td>
-                <td>Name</td>
-                <td>Price</td>
-                <td>Color</td>
-                <td>Fluffiness</td>
-            </tr>

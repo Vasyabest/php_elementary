@@ -1,4 +1,5 @@
 <?php
+
 class PetShopController
 {
     private $petShop;
@@ -10,31 +11,27 @@ class PetShopController
         $this->view = new View();
     }
 
-    public function getCatsAction()
-    {
+    public function getCats()
+    {      
         $cats = $this->petShop->getCats();
         $data = array('cats'=>$cats);
 
-        $this->view->render('/views/template.php', $data);
+        $this->view->render('/petShopMVC/views/template.php', $data);
     }
 
-    public function whiteOrFluffyAction()
+    public function getWhiteOrFluffy()
     {
-        $petShop = $this->petShop;
-        $whiteOrFluffy = $petShop->getWhiteOrFluffyPets();
+        $whiteOrFluffy = $this->petShop->getWhiteOrFluffyPets();
         $data = array('whiteOrFluffy'=>$whiteOrFluffy);
-        
-        $view = $this->view;
-        $view->render('/views/whiteOrFluffy.php', $data);
+
+        $this->view->render('/petShopMVC/views/whiteOrFluffy.php', $data);
     }
 
-    public function expensiveAction()
+    public function getExpensive()
     {
-        $petShop = $this->petShop;
-        $expensivePets = $petShop->getExpensivePets();
+        $expensivePets = $this->petShop->getExpensivePets();
         $data = array('expensivePets'=>$expensivePets);
 
-        $view = $this->view;
-        $view->render('/views/expensive.php', $data);
+        $this->view->render('/petShopMVC/views/expensive.php', $data);
     }
 }

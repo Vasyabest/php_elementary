@@ -10,3 +10,5 @@ foreach ($cats as $cat): ?>
         <td><?php echo $cat->isFluffy();?></td>
     </tr>
 <?php endforeach; ?>
+
+<?php include_once 'footer.php';?>

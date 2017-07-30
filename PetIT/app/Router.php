@@ -9,25 +9,23 @@ class Router
         $uri = $_SERVER['REQUEST_URI'];
         $parts = explode('/', trim($uri, '\\/'));
 
-        list($module, $controller, $action) = array_replace([null, null, null], $parts);
+        if ($uri === '/') {
+            $controller = new $this->controllers['petShopController'];
+            call_user_func([$controller, 'getCats']);
+        } else {
+            $module = $parts[1];
+            $request = $parts[2];
 
-        $module = $module ?: 'PetShopMVC';
-        $controller = $controller ?: 'petShopIndex';
-        $action = $action ?: 'getCats';
-        
-        if (!array_key_exists($controller, $this->controllers)) {
-            $module = 'PetShopMVC';
-            $controller = 'petShopIndex';
-            $action = 'getCats';
+            if ($module === 'petShop') {
+                $controller = new $this->controllers['petShopController'];
+                call_user_func([$controller, $request]);
+            }
+
+            if ($module === 'ITCompany') {
+                $controller = new $this->controllers['ITCompanyController'];
+                call_user_func([$controller, $request]);
+            }
         }
-        
-        $instance = new $this->controllers[$controller];
-        
-        if (!method_exists($instance, $action . 'Action')) {
-            $module = 'PetShopMVC';
-            $controller = 'petShopIndex';
-            $action = 'getCats';
-        }
-        call_user_func([$instance, $action . 'Action']);
+
     }
 }
