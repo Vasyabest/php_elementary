@@ -69,26 +69,41 @@ class ITCompanyController
 
     public function initializeTeams()
     {
+        $teamsFromDB = $this->db->selectAll('teams');
         $teams = [];
 
-        $needs1 = $this->initializeNeeds($this->tableNeeds1);
-        $needs2 = $this->initializeNeeds($this->tableNeeds2);
-        $teamMembersDnipro[] = new Dev('Irina', 1850);
-        $teamMembersDnipro[] = new QC('Fedya', 500);
-        $teamMembersKharkov[] = new PM('Sasha', 800);
-        $teamMembersKharkov[] = new Dev('Vova',600);
+        foreach ($teamsFromDB as $team) {
+            $id_team = $team['id'];
+            $needs = $this->initializeNeeds($id_team);
+            $teamMembers = $this->initializeTeamMembers($id_team);
 
-        $teamDnipro = new Team('Dnipro', 'AppleStore', $teamMembersDnipro, $needs1);
-        $teamKharkov = new Team('Kharkov', 'Amazon', $teamMembersKharkov, $needs2);
-        $teams = [$teamDnipro,$teamKharkov];
+            $teams[] = new Team($team['name'], $team['project'], $teamMembers, $needs);
+        }
 
         return $teams;
     }
 
-    public function initializeNeeds($tableNeeds)
+    public function initializeNeeds($id_team)
     {
-        $needs = $this->db->selectAll($tableNeeds);
+        $needs = $this->db->selectAll('needs', "`id_team` = '{$id_team}'");
         return $needs[0];
     }
 
+    public function initializeTeamMembers($id_team)
+    {
+        $teamMembers = [];
+        $specialists = $this->db->selectAll('team_members', "`id_team` = '{$id_team}'");
+
+        foreach ($specialists as $specialist) {
+            if($specialist['position'] === ProfileEnum::DEV){
+                $teamMembers[] = new Dev($specialist['name'], $specialist['salary'], $id_team);
+            } elseif ($specialist['position']=== ProfileEnum::PM) {
+                $teamMembers[] = new PM($specialist['name'], $specialist['salary'], $id_team);
+            } else {
+                $teamMembers[] = new QC($specialist['name'], $specialist['salary'], $id_team);
+            }
+        }
+
+        return $teamMembers;
+    }
 }
