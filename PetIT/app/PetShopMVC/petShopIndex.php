@@ -1,7 +1,7 @@
 <?php
 spl_autoload_register(function ()
 {
-    require_once 'models/Router.php';
+    require_once '../Router.php';
     require_once 'controllers/PetShopController.php';
     require_once 'models/petShop.php';
     require_once 'models/isFluffy.php';
