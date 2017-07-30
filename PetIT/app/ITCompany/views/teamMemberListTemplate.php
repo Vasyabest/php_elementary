@@ -4,7 +4,7 @@ require_once 'header.php';
 foreach ($teams as $team): ?>
     <div class="col-md-10">    
         <table class="table table-hover">
-            <caption><?php $team->getTeamName()?></caption>
+            <caption><?php echo $team->getTeamName()?></caption>
             <tr>
                 <td>Name</td>
                 <td>Position</td>

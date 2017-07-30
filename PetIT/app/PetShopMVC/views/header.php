@@ -7,15 +7,19 @@
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
     <!-- Latest compiled and minified JavaScript -->
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="../../styles/main.css">
+    
     <meta charset="UTF-8">
-    <title>PetShop</title>
+    <title>Pet IT</title>
 </head>
 <body>
 
 <div class="page-header">
     <a class="btn btn-default" href="/index/ITCompany/getTeamsBeforeHiring/" role="button">IT Company</a>
-    <h1>Pet Shop</h1>
 </div>
+
+<h1>Pet Shop</h1>
 
 <div class="row">
     <div class="col-md-2">
@@ -25,6 +29,7 @@
             <a href="/index/petShop/getExpensive/" class="list-group-item">Expensive pets</a>
         </div>
     </div>
+</div>    
     <div class="col-md-10">
         <table class="table table-hover">
             <tr>

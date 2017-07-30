@@ -56,7 +56,6 @@ class Team
     
     public function getTeamName()
     {
-        print_r($this->name);
         return $this->name;
     }
 }

@@ -16,7 +16,7 @@ class PetShopController
         $cats = $this->petShop->getCats();
         $data = array('cats'=>$cats);
 
-        $this->view->render('/petShopMVC/views/template.php', $data);
+        $this->view->render('/petShopMVC/views/catsTpl.php', $data);
     }
 
     public function getWhiteOrFluffy()
@@ -24,7 +24,7 @@ class PetShopController
         $whiteOrFluffy = $this->petShop->getWhiteOrFluffyPets();
         $data = array('whiteOrFluffy'=>$whiteOrFluffy);
 
-        $this->view->render('/petShopMVC/views/whiteOrFluffy.php', $data);
+        $this->view->render('/petShopMVC/views/whiteOrFluffyPetsTpl.php', $data);
     }
 
     public function getExpensive()
@@ -32,6 +32,6 @@ class PetShopController
         $expensivePets = $this->petShop->getExpensivePets();
         $data = array('expensivePets'=>$expensivePets);
 
-        $this->view->render('/petShopMVC/views/expensive.php', $data);
+        $this->view->render('/petShopMVC/views/expensivePetsTpl.php', $data);
     }
 }
