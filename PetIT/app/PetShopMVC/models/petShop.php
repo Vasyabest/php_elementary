@@ -16,7 +16,7 @@ class PetShop
 
     private function getPets()
     {
-        $db = new ConnectionDBSQL($this->host, $this->dbName, $this->user, $this->password);
+        $db = new ConnectionDBSQL($this->dbName, $this->user, $this->password);
         $petsDb = $db->selectAll($this->table);
 
         if(!empty($petsDb)){

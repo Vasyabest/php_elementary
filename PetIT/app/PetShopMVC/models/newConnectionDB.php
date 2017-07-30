@@ -1,16 +1,15 @@
 <?php
 
-class ConnectionDBSQL
+class newConnectionDB
 {
     public $pdo;
-    public $dsn = 'mysql:host=localhost;dbname=pet_shop_db';
+    public $dsn = 'mysql:host=localhost;dbname=it_company_db';
     public $user = 'root';
     public $password = '';
-    
 
-    public function __construct($dbName, $user, $password)
+    public function __construct($host, $db, $user, $password)
     {
-        $dsn = 'mysql:host=localhost;dbname=' . $dbName;
+        $dsn = $this->dsn;
         $user = $this->user;
         $password = $this->password;
         $this->pdo = new PDO($dsn, $user, $password);

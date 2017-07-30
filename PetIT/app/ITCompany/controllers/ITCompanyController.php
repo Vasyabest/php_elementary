@@ -4,12 +4,30 @@ class ITCompanyController
     private $view;
     private $ITCompany;
 
+    private $team;
+    public $candidates;
+    public $host = 'localhost';
+    public $dbName = 'it_company_db';
+    public $user = 'root';
+    public $password = 'admin';
+    public $db;
+    public $tableCandidate = 'candidates';
+
     public function __construct()
     {
-        $candidates = $this->initializeCandidates();
+        $this->db = new ConnectionDBSQL($this->dbName, $this->user, $this->password);
+
+        $candidatesFromDB = $this->getDataFromDB();
+        $this->candidates = $this->initializeCandidates($candidatesFromDB);
+
         $teams = $this->initializeTeams();
-        $this->ITCompany = new ITCompany($teams, $candidates);
+
+        $this->ITCompany = new ITCompany($teams, $this->candidates);
         $this->view = new View();
+
+       // $this->candidates = $this->getDataFromDB();
+        //$this->team = $this->getTeamsFromDb();
+
     }
 
     public function getTeamsBeforeHiring()
@@ -30,22 +48,28 @@ class ITCompanyController
         $this->view->render('ITCompany/views/teamMemberListTemplate.php', $data);
     }
 
-    public function initializeCandidates()
+
+    public function getDataFromDB()
     {
-        $candidates = [];
+        $candidates = $this->db->selectAll($this->tableCandidate);
+        //var_dump($candidates);
+        return  $candidates;
+    }
 
-        $candidates[] = new Candidate('Vasya', 700, 'PM');
-        $candidates[] = new Candidate('Alex', 600, 'PM');
-        $candidates[] = new Candidate('Tolik', 800, 'Dev');
-        $candidates[] = new Candidate('Borya', 500, 'Dev');
-        $candidates[] = new Candidate('Petya', 1000, 'Dev');
-        $candidates[] = new Candidate('Misha', 300, 'Dev');
-        $candidates[] = new Candidate('Serega', 900, 'Dev');
-        $candidates[] = new Candidate('Kolya', 200, 'Dev');
-        $candidates[] = new Candidate('Katya', 120, 'QC');
-        $candidates[] = new Candidate('Filya', 300, 'QC');
 
-        return $candidates;
+
+    public function initializeCandidates($candidates)
+    {
+        $candidatesObj = [];
+        foreach ($candidates as $candidate){
+            $candidatesObj[] = new Candidate(
+                $candidate['name'],
+                $candidate['wantedSalary'],
+                $candidate['profile']
+            );
+        }
+        
+        return $candidatesObj;
     }
 
     public function initializeTeams()
