@@ -3,7 +3,6 @@ class Router
 {
     public $controllers = [];
 
-
     public function execute()
     {
         $uri = $_SERVER['REQUEST_URI'];
@@ -26,6 +25,5 @@ class Router
                 call_user_func([$controller, $request]);
             }
         }
-
     }
 }

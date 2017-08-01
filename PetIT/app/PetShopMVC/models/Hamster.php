@@ -3,7 +3,7 @@ require_once 'isFluffy.php';
 
 class Hamster extends Pet
 {
-    use isFluffy;
+    use isFluffyTrait;
 
     public function __construct($color, $price)
     {

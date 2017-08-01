@@ -3,33 +3,22 @@ class ITCompanyController
 {
     private $view;
     private $ITCompany;
-
-    private $team;
-    public $candidates;
-    public $host = 'localhost';
-    public $dbName = 'it_company_db';
-    public $user = 'root';
-    public $password = 'admin';
-    public $db;
-    public $tableCandidate = 'candidates';
-    public $tableNeeds1 = 'needs1';
-    public $tableNeeds2 = 'needs2';
-
+    private $candidates;
+    private $dbName = 'it_company_db';
+    private $user = 'root';
+    private $password = 'admin';
+    private $db;
+    private $tableCandidate = 'candidates';
 
     public function __construct()
     {
         $this->db = new ConnectionDBSQL($this->dbName, $this->user, $this->password);
 
         $this->candidates = $this->initializeCandidates();
-
         $teams = $this->initializeTeams();
 
         $this->ITCompany = new ITCompany($teams, $this->candidates);
         $this->view = new View();
-
-       // $this->candidates = $this->getDataFromDB();
-        //$this->team = $this->getTeamsFromDb();
-
     }
 
     public function getTeamsBeforeHiring()
@@ -49,7 +38,6 @@ class ITCompanyController
         $data = array('teams'=>$teams);
         $this->view->render('ITCompany/views/teamMemberListTemplate.php', $data);
     }
-
 
     public function initializeCandidates()
     {
@@ -86,6 +74,7 @@ class ITCompanyController
     public function initializeNeeds($id_team)
     {
         $needs = $this->db->selectAll('needs', "`id_team` = '{$id_team}'");
+
         return $needs[0];
     }
 

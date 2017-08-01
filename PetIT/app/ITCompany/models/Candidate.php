@@ -10,7 +10,6 @@ class Candidate
         $this->name = $name;
         $this->wantedSalary = $wantedSalary;
         $this->profile = $profile;
-
     }
 
     public function getWantedSalary()

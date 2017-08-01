@@ -3,7 +3,7 @@ require_once 'isFluffy.php';
 
 class Cat extends Pet
 {
-    use isFluffy;
+    use isFluffyTrait;
     
     protected $name;
     protected $fluffy;

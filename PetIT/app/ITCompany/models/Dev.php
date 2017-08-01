@@ -19,11 +19,13 @@ class Dev extends HardSpecialist
         return $this->name;
     }
 
-    public function getPosition () {
+    public function getPosition()
+    {
         return $this->position;
     }
 
-    public function getSalary () {
+    public function getSalary()
+    {
         return $this->salary;
     }
 }

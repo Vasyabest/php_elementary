@@ -3,9 +3,7 @@ spl_autoload_register(function ()
 {    
     require_once 'Router.php';
     
-    //Petshop files
     require_once 'PetShopMVC/controllers/PetShopController.php';
-    
     require_once 'PetShopMVC/models/petShop.php';
     require_once 'PetShopMVC/models/isFluffy.php';
     require_once 'PetShopMVC/models/Pet.php';
@@ -15,9 +13,7 @@ spl_autoload_register(function ()
     require_once 'PetShopMVC/models/View.php';
     require_once 'PetShopMVC/models/ConnectionDBSQL.php';
 
-    //IT Company files
     require_once 'ITCompany/controllers/ITCompanyController.php';
-    
     require_once 'ITCompany/models/ITCompany.php';
     require_once 'ITCompany/models/Candidate.php';
     require_once 'ITCompany/models/HRTeam.php';

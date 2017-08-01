@@ -15,9 +15,6 @@ class ITCompany
 
     public function hire(Team $team)
     {
-
-
-       // $this->team = $team;
         $needs = $team->getNeeds();
         if (!($team->isComplete())) {
             foreach ($needs as $need => $value) {
@@ -32,23 +29,12 @@ class ITCompany
         
         return "Team is complete!";
     }
-
-    public function gotFun()
-    {
-
-    }
-
-
+    
     public function getCandidates()
     {
         return $this->candidates;
     }
     
-//    public function getHRTeam()
-//    {
-//        return $this->hrTeam;
-//    }
-
     public function getTeams()
     {
         return $this->teams;
@@ -58,6 +44,4 @@ class ITCompany
     {
         $this->candidates[] = new Candidate($name, $salary, $profile);
     }
-    
-    
 }

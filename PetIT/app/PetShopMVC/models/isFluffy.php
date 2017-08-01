@@ -1,7 +1,7 @@
 <?php
 
 
-trait isFluffy 
+trait isFluffyTrait 
 {    
     public function isFluffy()
     {

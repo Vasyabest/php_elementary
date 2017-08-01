@@ -23,6 +23,4 @@ abstract class Pet
         return $this->type;
     }
     
-    
-    
 }

@@ -1,7 +1,7 @@
 <?php
 class Dog extends Pet
 {
-    use isFluffy;
+    use isFluffyTrait;
 
     protected $name;
 

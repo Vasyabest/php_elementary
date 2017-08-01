@@ -2,11 +2,9 @@
 
 class ConnectionDBSQL
 {
-    public $pdo;
-    public $dsn = 'mysql:host=localhost;dbname=pet_shop_db';
-    public $user = 'root';
-    public $password = '';
-    
+    private $pdo;
+    private $user = 'root';
+    private $password = '';
 
     public function __construct($dbName, $user, $password)
     {

@@ -4,7 +4,6 @@ class PetShop
 {
     private $pets = [];
     private $table = 'petsdb';
-    private $host = 'localhost';
     private $dbName = 'pet_shop_db';
     private $user = 'root';
     private $password = '';
@@ -42,8 +41,7 @@ class PetShop
 
         return $pets;
     }
-
-           
+    
     public function getCats()
     {
         $cats = [];

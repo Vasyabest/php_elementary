@@ -6,5 +6,4 @@ abstract class Worker extends Person
     protected $position;
     protected $salary;
     protected $team;
-    
 }
